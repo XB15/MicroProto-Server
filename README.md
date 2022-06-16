@@ -1,2 +1,2 @@
-# PR-Server
-Repository for the XB15-PR Server Software
+# MicroProto-Server
+Repository for the XB15-MicroProto Server Software
