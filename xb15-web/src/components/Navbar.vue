@@ -58,7 +58,7 @@ export default {
             drawer: false,
             drawer_right:false,
             links_left: [
-                { icon: 'mdi-home', text: 'Home', route: 'home'},
+                { icon: 'mdi-home', text: 'Home', route: '/'},
                 { icon: 'mdi-lightbulb-on', text: 'Ears', route: 'ears'},
                 { icon: 'mdi-fan', text: 'Fan', route: 'fan'},
                 { icon: 'mdi-cog', text: 'Settings', route: 'settings'},

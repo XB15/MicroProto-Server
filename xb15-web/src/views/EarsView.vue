@@ -1,0 +1,66 @@
+<template>
+  <div>
+    <h1 class="white--text mx-4 mt-4">Ears</h1>
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="4">
+          <v-select 
+            dark
+            :items="items"
+            label="Lighting mode"
+            solo
+            item-color="gray"
+            v-model="colorEnable">
+          </v-select>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+          <v-col cols="12" md="4" align="center">
+              <h2 class="white--text"> {{ !earSync ? 'Left' : 'Ears' }}</h2>
+              <v-color-picker 
+                dark elevation="15" 
+                hide-mode-switch dot-size="35" 
+                :disabled="colorEnable !== 'static'"
+                class="grey darken-2"
+                v-model="leftPicker">
+              </v-color-picker>
+          </v-col>
+          <v-col  cols="12" md="4" align="center">
+            <v-btn 
+              dark 
+              @click="earSync = !earSync"
+              :disabled="colorEnable !== 'static'">
+              <v-icon large dark>{{ !earSync ? 'mdi-link' : 'mdi-link-lock' }}</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="12" md="4" align="center">
+            <h2 class="white--text">right</h2>
+            <v-color-picker 
+              dark elevation="15" 
+              hide-mode-switch dot-size="35" 
+              :disabled="earSync === true || colorEnable !== 'static'" 
+              class="grey darken-2"
+              v-model="rightPicker">
+            </v-color-picker>
+          </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+
+<script>
+
+  export default {
+    name: 'Home',
+    data() {
+        return {
+            earSync: true,
+            colorEnable: 'rainbow',
+            items: ['rainbow', 'fade', 'breathing', 'heartbeat', 'static'],
+            leftPicker: { r: 189, g: 89, b: 246, a: 1 },
+            rightPicker: { r: 189, g: 98, b: 246, a: 1 }
+            }
+            
+    }
+  }
+</script>
