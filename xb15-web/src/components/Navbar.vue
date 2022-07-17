@@ -14,7 +14,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-badge overlap top dot left class="mx-2" :value="notifications">
-        <v-btn fab depressed small color="grey darken-4">
+        <v-btn fab depressed small color="grey darken-4" @click="notificationPopUp = !notificationPopUp">
           <v-icon>mdi-bell-outline</v-icon>
         </v-btn>
       </v-badge>
@@ -28,6 +28,15 @@
         <v-icon>mdi-power</v-icon>
       </v-btn>
     </v-app-bar>
+
+    <v-dialog v-model="notificationPopUp" width="500">
+      <v-card dark>
+        <v-card-title class="headline grey darken-2 white--text" primary-title>
+          Notifications
+        </v-card-title>
+        <v-card-text class="pt-5">there are no notifications</v-card-text>
+      </v-card>
+    </v-dialog>
 
     <v-navigation-drawer
       :permanent="$vuetify.breakpoint.smAndUp"
@@ -87,6 +96,8 @@ export default {
       drawer: false,
       drawer_right: false,
       notifications: true,
+      notificationPopUp: false,
+      popUpContent: [{ title: "test", content: "test1" }],
       links_left: [
         { icon: "mdi-home", text: "Home", route: "/" },
         { icon: "mdi-upload", text: "Screens", route: "screens" },
