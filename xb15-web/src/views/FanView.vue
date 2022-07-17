@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Fan",
   data() {
     return {
       fanSpeed: { label: "speed", val: 0, color: "#bc59f6" },

@@ -81,7 +81,7 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Ears",
   data() {
     return {
       earSync: true,

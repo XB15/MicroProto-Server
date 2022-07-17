@@ -95,7 +95,7 @@ export default {
     return {
       drawer: false,
       drawer_right: false,
-      notifications: true,
+      notifications: false,
       notificationPopUp: false,
       popUpContent: [{ title: "test", content: "test1" }],
       links_left: [
