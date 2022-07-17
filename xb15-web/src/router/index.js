@@ -31,6 +31,11 @@ const routes = [
     component: () => import('../views/UpdateView.vue')
   },
   {
+    path: '/screens',
+    name: 'screens',
+    component: () => import('../views/ScreensView.vue')
+  },
+  {
     path: '/ears',
     name: 'ears',
     component: () => import('../views/EarsView.vue')

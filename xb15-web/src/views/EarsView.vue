@@ -3,7 +3,7 @@
     <h1 class="white--text mx-4 mt-4">Ears</h1>
     <v-container>
       <v-row>
-        <v-col cols="8" md="4">
+        <v-col class="flex-grow-1">
           <v-select
             dark
             :items="items"
@@ -14,21 +14,21 @@
           >
           </v-select>
         </v-col>
-        <v-col cols="2" md="4" class="pt-4">
+        <v-col class="pt-4" cols="auto">
           <v-btn
             large
             dark
             @click="earSync = !earSync"
-            :disabled="colorEnable !== 'static'"
+            :disabled="colorEnable === 'rainbow'"
           >
-            <v-icon large class="mr-2">{{
+            <v-icon class="mr-2">{{
               !earSync ? "mdi-link" : "mdi-link-lock"
             }}</v-icon>
             <span>Sync</span>
           </v-btn>
         </v-col>
       </v-row>
-      <v-row align="center" v-if="colorEnable === 'static'">
+      <v-row align="center" v-if="colorEnable !== 'rainbow' && colorEnable !=='fade'">
         <v-col cols="12" md="4" align="center">
           <h2 class="white--text">
             {{ !earSync ? "Left" : "Ears" }}
@@ -39,7 +39,6 @@
             elevation="15"
             hide-mode-switch
             dot-size="35"
-            :disabled="colorEnable !== 'static'"
             class="grey darken-2"
             v-model="leftPicker"
           >
@@ -60,6 +59,22 @@
           </v-color-picker>
         </v-col>
       </v-row>
+      <v-row v-if="colorEnable !== 'static'">
+        <v-col
+          class="flex-grow-1"
+          md="4"
+          :class="{ 'pt-8': colorEnable !== 'rainbow' && colorEnable !== 'fade'}"
+        >
+          <v-slider
+            dark
+            v-model="speedSlider.val"
+            :color="speedSlider.color"
+            :label="speedSlider.label"
+            thumb-label="hover"
+          >
+          </v-slider>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -74,6 +89,7 @@ export default {
       items: ["rainbow", "fade", "breathing", "heartbeat", "static"],
       leftPicker: { r: 189, g: 89, b: 246, a: 1 },
       rightPicker: { r: 189, g: 98, b: 246, a: 1 },
+      speedSlider: { label: "speed", val: 10, color: "#bc59f6" },
     };
   },
 };

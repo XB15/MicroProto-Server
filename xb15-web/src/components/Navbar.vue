@@ -13,9 +13,11 @@
         <span>MicroProto</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn fab depressed small color="grey darken-4">
-        <v-icon>mdi-bell-outline</v-icon>
-      </v-btn>
+      <v-badge overlap top dot left class="mx-2" :value="notifications">
+        <v-btn fab depressed small color="grey darken-4">
+          <v-icon>mdi-bell-outline</v-icon>
+        </v-btn>
+      </v-badge>
       <v-btn
         fab
         depressed
@@ -44,9 +46,9 @@
           router
           :to="link.route"
         >
-          <v-list-item-action>
+          <v-list-item-content>
             <v-icon>{{ link.icon }}</v-icon>
-          </v-list-item-action>
+          </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -84,8 +86,10 @@ export default {
     return {
       drawer: false,
       drawer_right: false,
+      notifications: true,
       links_left: [
         { icon: "mdi-home", text: "Home", route: "/" },
+        { icon: "mdi-upload", text: "Screens", route: "screens" },
         { icon: "mdi-lightbulb-on", text: "Ears", route: "ears" },
         { icon: "mdi-fan", text: "Fan", route: "fan" },
         { icon: "mdi-cog", text: "Settings", route: "settings" },
