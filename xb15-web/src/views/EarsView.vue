@@ -14,9 +14,9 @@
           >
           </v-select>
         </v-col>
-        <v-col class="pt-4" cols="auto">
+        <v-col class="pt-3" cols="auto">
           <v-btn
-            large
+            height="48"
             dark
             @click="earSync = !earSync"
             :disabled="colorEnable === 'rainbow'"
