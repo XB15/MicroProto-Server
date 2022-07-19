@@ -1,10 +1,16 @@
 <template>
-  <h1 class="white--text mx-4 mt-4">System Updates</h1>
+  <div>
+    <h1 class="white--text mx-4 mt-4">System updates</h1>
+    <v-container>
+      <v-row>
+        <v-col></v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
-
-  export default {
-    name: 'Update',
-  }
+export default {
+  name: "Settings",
+};
 </script>
