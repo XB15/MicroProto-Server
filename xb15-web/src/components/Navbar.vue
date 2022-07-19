@@ -13,8 +13,14 @@
         <span>MicroProto</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-badge overlap top dot left class="mx-2" :value="notifications">
-        <v-btn fab depressed small color="grey darken-4" @click="notificationPopUp = !notificationPopUp">
+      <v-badge overlap top dot left class="mx-2" :value="haveNotifications">
+        <v-btn
+          fab
+          depressed
+          small
+          color="grey darken-4"
+          @click="notificationPopUp = !notificationPopUp"
+        >
           <v-icon>mdi-bell-outline</v-icon>
         </v-btn>
       </v-badge>
@@ -34,7 +40,27 @@
         <v-card-title class="headline grey darken-2 white--text" primary-title>
           Notifications
         </v-card-title>
-        <v-card-text class="pt-5">there are no notifications</v-card-text>
+        <v-list v-if="haveNotifications">
+          <v-list-item
+            v-for="notification in notifications"
+            :key="notification.id"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ notification.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ notification.title }}
+              </v-list-item-title>
+              <v-list-item-subtitle>
+                {{ notification.body }}
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-card-text v-else class="pt-5">
+          there are no notifications
+        </v-card-text>
       </v-card>
     </v-dialog>
 
@@ -95,7 +121,6 @@ export default {
     return {
       drawer: false,
       drawer_right: false,
-      notifications: false,
       notificationPopUp: false,
       popUpContent: [{ title: "test", content: "test1" }],
       links_left: [
@@ -111,7 +136,64 @@ export default {
         { icon: "mdi-restart", text: "Reboot", route: "rebootcode" },
         { icon: "mdi-server", text: "System-Status", route: "status" },
       ],
+      notifications: [
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+        {
+          icon: "mdi-information",
+          title: "System updates completed",
+          body: "MicroProto was updated from v0.1.0 to v0.1.1",
+        },
+      ],
     };
+  },
+  computed: {
+    haveNotifications() {
+      return !!this.notifications.length;
+    },
   },
 };
 </script>
