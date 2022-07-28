@@ -127,7 +127,6 @@ export default {
         { icon: "mdi-home", text: "Home", route: "/" },
         { icon: "mdi-upload", text: "Screens", route: "screens" },
         { icon: "mdi-lightbulb-on", text: "Ears", route: "ears" },
-        { icon: "mdi-fan", text: "Fan", route: "fan" },
         { icon: "mdi-cog", text: "Settings", route: "settings" },
         { icon: "mdi-download", text: "Updates", route: "update" },
       ],
