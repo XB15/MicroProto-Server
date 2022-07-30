@@ -12,9 +12,9 @@
         <h2 class="white--text">gallery</h2>
       </v-row>
       <v-row class="justify-left pt-8">
-        <v-col cols="3">
-          <v-card>
-            <v-img src="@/uploads/Logo_color.png"> </v-img>
+        <v-col cols="4" md="3" v-for="item in gallery" :key="item.src">
+          <v-card hover>
+            <v-img :src="'/img/' + item.src" />
           </v-card>
         </v-col>
       </v-row>
@@ -25,5 +25,20 @@
 <script>
 export default {
   name: "Screens",
+  data() {
+    return {
+      gallery: [
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png" },
+      ],
+    };
+  },
 };
 </script>
