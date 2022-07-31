@@ -18,16 +18,19 @@
               <v-img
                 src="@/assets/overlay_gallery_1.png"
                 class="pt-1"
+                aspect-ratio="1"
                 v-if="item.status === 1"
               ></v-img>
               <v-img
                 src="@/assets/overlay_gallery_2.png"
                 class="pt-1"
+                aspect-ratio="1"
                 v-if="item.status === 2"
               ></v-img>
               <v-img
                 src="@/assets/overlay_gallery_3.png"
                 class="pt-1"
+                aspect-ratio="1"
                 v-if="item.status === 3"
               ></v-img>
             </v-img>
