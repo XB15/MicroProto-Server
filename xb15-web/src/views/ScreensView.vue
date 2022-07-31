@@ -14,7 +14,23 @@
       <v-row class="justify-left pt-8">
         <v-col cols="4" md="3" v-for="item in gallery" :key="item.src">
           <v-card hover>
-            <v-img :src="'/img/' + item.src" />
+            <v-img :src="'/img/' + item.src" aspect-ratio="1">
+              <v-img
+                src="@/assets/overlay_gallery_1.png"
+                class="pt-1"
+                v-if="item.status === 1"
+              ></v-img>
+              <v-img
+                src="@/assets/overlay_gallery_2.png"
+                class="pt-1"
+                v-if="item.status === 2"
+              ></v-img>
+              <v-img
+                src="@/assets/overlay_gallery_3.png"
+                class="pt-1"
+                v-if="item.status === 3"
+              ></v-img>
+            </v-img>
           </v-card>
         </v-col>
       </v-row>
@@ -28,15 +44,15 @@ export default {
   data() {
     return {
       gallery: [
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
-        { src: "Logo_color.184208e9.png" },
+        { src: "Logo_color.184208e9.png", status: 1 },
+        { src: "Logo_color.184208e9.png", status: 0 },
+        { src: "Logo_color.184208e9.png", status: 3 },
+        { src: "Logo_color.184208e9.png", status: 0 },
+        { src: "Logo_color.184208e9.png", status: 0 },
+        { src: "Logo_color.184208e9.png", status: 0 },
+        { src: "Logo_color.184208e9.png", status: 2 },
+        { src: "Logo_color.184208e9.png", status: 0 },
+        { src: "Logo_color.184208e9.png", status: 0 },
       ],
     };
   },
