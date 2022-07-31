@@ -12,7 +12,7 @@
           <ScreenSettings></ScreenSettings>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row class="pb-5">
         <v-col>
           <SystemSettings></SystemSettings>
         </v-col>
